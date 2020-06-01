@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
               ),
               onPressed: () {}),
           new IconButton(
-              icon: Icon(Icons.add_shopping_cart),
+              icon: Icon(Icons.shopping_basket),
               color: Colors.white,
               onPressed: () {})
         ],
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               decoration: new BoxDecoration(
-                color: Colors.blue,
+                color: Colors.red.shade900,
               ),
             ),
 
@@ -149,7 +149,10 @@ class _HomePageState extends State<HomePage> {
 
           new Padding(
             padding: const EdgeInsets.all(8.0),
-            child: new Text('Favorites',style: TextStyle(fontSize: 20.0),),
+            child: new Text(
+              'Favorites',
+              style: TextStyle(fontSize: 20.0),
+            ),
           ),
 
           //horizontal list view begins here
@@ -157,8 +160,13 @@ class _HomePageState extends State<HomePage> {
 
           new Padding(
             padding: const EdgeInsets.all(20.0),
-            child: new Text('Recent Items',style: TextStyle(fontSize: 20.0),),
+            child: new Text(
+              'Recent Items',
+              style: TextStyle(fontSize: 20.0),
+            ),
           ),
+
+          //grid view
           Container(
             height: 320.0,
             child: Products(),

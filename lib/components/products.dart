@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:superstarshopping/pages/product_details.dart';
 
 class Products extends StatefulWidget {
   @override
@@ -26,7 +27,7 @@ class _ProductsState extends State<Products> {
     return GridView.builder(
         itemCount: product_list.length,
         gridDelegate:
-        new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (BuildContext context, int index) {
           return Single_prod(
             prod_name: product_list[index]['name'],
@@ -55,39 +56,45 @@ class Single_prod extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Hero(
-          tag: prod_name,
-          child: Material(
-            child: InkWell(
-              onTap: () {},
-              child: GridTile(
-                  footer: Container(
-                    color: Colors.white70,
-                    child: ListTile(
-                      leading: Text(
-                        prod_name,
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      title: Text(
-                        "\$$prod_price",
-                        style: TextStyle(
-                            color: Colors.red, fontWeight: FontWeight.w800),
-                      ),
-                      subtitle: Text(
-                        "\$$prod_old_price",
-                        style: TextStyle(
-                            color: Colors.black54,
-                            fontWeight: FontWeight.w800,
-                            decoration
-                                :TextDecoration.lineThrough),
-                      ),
+        tag: prod_name,
+        child: Material(
+          child: InkWell(
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => ProductDetails(
+                      product_detail_name: prod_name,
+                      product_detail_new_price: prod_price,
+                      product_detail_old_price: prod_old_price,
+                      product_detail_picure: prod_pricture,
+                    ))),
+            child: GridTile(
+                footer: Container(
+                  color: Colors.white70,
+                  child: ListTile(
+                    leading: Text(
+                      prod_name,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    title: Text(
+                      "\$$prod_price",
+                      style: TextStyle(
+                          color: Colors.red, fontWeight: FontWeight.w800),
+                    ),
+                    subtitle: Text(
+                      "\$$prod_old_price",
+                      style: TextStyle(
+                          color: Colors.black54,
+                          fontWeight: FontWeight.w800,
+                          decoration: TextDecoration.lineThrough),
                     ),
                   ),
-                  child: Image.asset(
-                    prod_pricture,
-                    fit: BoxFit.cover,
-                  )),
-            ),
-          )),
+                ),
+                child: Image.asset(
+                  prod_pricture,
+                  fit: BoxFit.cover,
+                )),
+          ),
+        ),
+      ),
     );
   }
 }
