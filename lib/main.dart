@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:superstarshopping/components/horizontal_listview.dart';
 
+import 'package:superstarshopping/components/products.dart';
+
 void main() {
   runApp(MaterialApp(
     home: HomePage(),
@@ -147,10 +149,20 @@ class _HomePageState extends State<HomePage> {
 
           new Padding(
             padding: const EdgeInsets.all(8.0),
-            child: new Text('Favorites'),
+            child: new Text('Favorites',style: TextStyle(fontSize: 20.0),),
           ),
-//horizontal list view begins here
+
+          //horizontal list view begins here
           HorizontalList(),
+
+          new Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: new Text('Recent Items',style: TextStyle(fontSize: 20.0),),
+          ),
+          Container(
+            height: 320.0,
+            child: Products(),
+          )
         ],
       ),
     );

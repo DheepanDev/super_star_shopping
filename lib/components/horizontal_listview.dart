@@ -8,33 +8,34 @@ class HorizontalList extends StatelessWidget {
       height: 80.0,
       child: ListView(
         scrollDirection: Axis.horizontal,
-        children:<Widget> [
+        children: <Widget>[
           Favorites(
-            image_location:'images/cats/tshirt.png',
-            image_caption:'T-Shirts',
+            image_location: 'images/cats/tshirt.png',
+            image_caption: 'T-Shirts',
           ),
           Favorites(
-            image_location:'images/cats/dress.png',
-            image_caption:'Frocks',
+            image_location: 'images/cats/dress.png',
+            image_caption: 'Frocks',
           ),
           Favorites(
-            image_location:'images/cats/jeans.png',
-            image_caption:'Jeans',
+            image_location: 'images/cats/jeans.png',
+            image_caption: 'Jeans',
           ),
           Favorites(
-            image_location:'images/cats/formal.png',
-            image_caption:'Suit',
-          ),Favorites(
-            image_location:'images/cats/informal.png',
-            image_caption:'Jerkins',
+            image_location: 'images/cats/formal.png',
+            image_caption: 'Suit',
           ),
           Favorites(
-            image_location:'images/cats/shoe.png',
-            image_caption:'Shoes',
+            image_location: 'images/cats/informal.png',
+            image_caption: 'Jerkins',
           ),
           Favorites(
-            image_location:'images/cats/accessories.png',
-            image_caption:'Accessories',
+            image_location: 'images/cats/shoe.png',
+            image_caption: 'Shoes',
+          ),
+          Favorites(
+            image_location: 'images/cats/accessories.png',
+            image_caption: 'Accessories',
           ),
         ],
       ),
@@ -49,26 +50,31 @@ class Favorites extends StatelessWidget {
   Favorites({
     this.image_location,
     this.image_caption,
-});
+  });
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: const EdgeInsets.all(2.0),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
       child: InkWell(
         onTap: () {},
         child: Container(
           width: 100.0,
           child: ListTile(
-            title: Image.asset(image_location,width: 100.0,height: 80.0,
-            ),
-
-            subtitle: Container(
-              alignment: Alignment.topCenter,
-              child: Text(image_caption),
-            )
-          ),
+              title: Image.asset(
+                image_location,
+                width: 10.0,
+                height: 80.0,
+              ),
+              subtitle: Container(
+                alignment: Alignment.topCenter,
+                width: 100.0,
+                child: Text(
+                  image_caption,
+                  style: TextStyle(fontSize: 100.0),
+                ),
+              )),
         ),
       ),
     );
   }
 }
-
